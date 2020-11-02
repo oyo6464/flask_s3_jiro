@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!--自前のcssとファビコン  -->
+  <link rel="stylesheet" href="../static/style.css?v=12">
+  <link href="../static/images/favicon.ico" rel="icon">
+  <title>四択クイズ</title>
+</head>
+
+<body class="bg-light">
+  <h1>4択クイズ</h1>
+    <div class="container  bg-white">
+  <div class="my-5 pt-5 text-muted text-center text-small">
+    <!-- <div class="py-5 text-center"> -->
+      <!-- <div class="row"> -->
+        <h2>このアプリでは四択クイズを作ることができます<br>
+          （1～3問）<br></h2>
+          <p>問題を送信→ユニークなURLを作成<br>
+          URLをTwitterやLine等で公開することで作成した四択クイズで遊んでもらうことができます<br><br>
+          もしも正解率が60%を超えた場合に表示したい画像があれば、
+          アップロードすることも可能です（なくても問題は作れます）
+          <br><br>
+          ※正解として選んだ選択肢と同じ内容の選択肢があった場合、<br>
+          その選択肢も正解になります</p>
+          <!-- http://localhost:5000/download/FS_9597006402e44b469c366468e0f60110 -->
+          <h3><a href="https://oyoyo6486.herokuapp.com/download/FS_9597006402e44b469c366468e0f60110">サンプルクイズですここかえる</a></h3>
+      <!-- </div> -->
+    </div>
+    
+<div class="text-center mb-4">
+
+      <form action="/upload" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <filedset>
+          <p>画像サイズは8MB以下、<br>gif,jpeg,pngのみアップロード可能です</p>
+          <legend>アップロード</legend>
+          <div class="row">
+            <div class="col-6 offset-3 -md-12">
+              <div class="form-label-group">
+                <label for="upfile">画像をアップロード</label>
+                <input class="form-control-file" type="file" name="upfile" id="upfile">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 offset-3 -md-12">
+
+              <div class="form-group">
+              <label for="name">お名前</label>
+              <input class="form-control" type="text" name="name" id="name" placeholder="名無しさん" required>
+            </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 offset-3 -md-12">
+              <button type="submit" class="btn btn-lg btn-block btn-outline-primary">なぞなぞを作ってみる</button>
+            </div>
+          </div>
+
+          <div class="debug m-5 p-5">
+            <!-- <a href="http://localhost:5000/rensyu">ブートストラップ</a> -->
+          </div>
+        </filedset>
+      </form>
+
+
+
+ 
+
+
+
+
+      
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <!-- <p class="mb-1">&copy; 2020</p> -->
+        <ul class="list-inline">
+         
+          <li class="list-inline-item"><a href="/">四択クイズ</a></li>
+        </ul>
+      </footer>
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

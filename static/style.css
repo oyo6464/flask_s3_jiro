@@ -1,0 +1,23 @@
+h1 {
+    background-color: #0078e7;
+    color: white;
+    padding: 10px; margin:0;
+}
+/* なぜかh2無視されてる */
+h2 {
+    color: #6869aa;
+}
+
+h3 {
+    color: #aaaaaa;
+}
+
+legend{
+    color: #442255;
+}
+p{
+    color: #6869aa;
+}
+
+
+  

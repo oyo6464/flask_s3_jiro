@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!-- bootstrap レイアウト練習ページ -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!--自前のcssとファビコン  -->
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="../static/images/favicon.ico" rel="icon">
+    <!-- <title>ページタイトル</title> -->
+    <style>
+        .box1 {
+            background-color: chartreuse;
+        }
+
+        .box2 {
+            background-color: crimson;
+            margin: 1em;
+        }
+    </style>
+
+</head>
+
+<body class="bg-light">
+    <!-- 要素-->
+    <div class="content">
+        <h1>タイトル</h1>
+        <div class="container px-5 bg-white mt-3">
+            <div class="row">
+                <div class="col-md-6 order-md-1">
+                  <!-- ボタン悩み中  col-md-8 order-md-1-->
+                  <button type="submit" class="btn btn-primary my-2">なぞなぞを作ってみる</button>
+                  <button type="submit" class="btn btn-lg btn-block btn-outline-primary">なぞなぞを作ってみる</button>
+                  <button type="submit" class="btn btn-outline-primary">なぞなぞを作ってみる</button>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block">なぞなぞを作ってみる</button>
+                </div>
+              </div>
+
+
+
+            <div class="row">
+                <div class="box1 col-8 offset-2">
+                    box1 aaa aaa aaa aaa aaa<br>qqqqq
+                </div>
+            </div>
+            <div class="row">
+                <div class="box2 col-4">
+                    box2
+                </div>
+            </div>
+            <table class="table">
+
+                <tr>
+                    <th>ファイルあげた</th>
+                    <td>ssssssssssss</td>
+                </tr>
+                <tr>
+                    <th>ファイル上げてない</th>
+                    <td>ご褒美ファイル無し</td>
+                </tr>
+            </table>
+            <!-- ここメイン、内容 -->
+            <div class="form-group row">
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-10 btn-group" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary " style="width:50%">
+                        男性
+                    </label>
+                    <label class="btn btn-outline-secondary" style="width:50%">
+                        女性
+                    </label>
+                </div>
+            </div>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+                </label>
+              </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+        <script>
+            $().button('toggle')
+        </script>
+</body>
+
+</html>

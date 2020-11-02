@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!--自前のcssとファビコン  -->
+    <link rel="stylesheet" href="../static/style.css?v=12">
+    <link href="../static/images/favicon.ico" rel="icon">
+    <title>四択クイズ</title>
+</head>
+
+<body class="bg-light">
+    <h1>4択クイズ</h1>
+    
+    <div class="container px-5 bg-white mt-3">
+        <h2>
+            {{ meta.p_name }}さん　問題作成ページ
+        </h2>
+
+        <h3>送信内容</h3>
+        <table class="table">
+            {%if meta.p_filename != ""%}
+            <tr>
+                <th>ファイルがアップロードされています</th>
+                <td>{{meta.p_filename}}</td>
+            </tr>
+            {%else%}
+            <tr>
+                <th>画像ファイルを上げていません</th>
+                <td>画像ファイル無し</td>
+            </tr>
+            {%endif%}
+        </table>
+
+        {%if meta.p_filename != ""%}
+        <h2>アップロードされた画像</h2>
+        <img src="../static/userimage/{{meta.id}}{{meta.p_filename}}" width="400">
+        {%else%}
+        {%endif%}
+
+
+        <div class="row">
+            <div class="col-8 offset-2 -md-12">
+
+                <h2>問題文と4つの選択肢を入力して下さい</h2>
+                <form action="/upload_2/{{meta.id}}" method="POST" enctype="multipart/form-data" autocomplete="off"
+                    class="">
+            
+                    <filedset>
+                        <legend>問題文を記入してください</legend>
+                        <div class="form-group">
+                            <label for="question">質問問題</label>
+                            <textarea class="form-control" name="question" id="question" required rows=5
+                                cols=45></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="option_1">選択肢1</label>
+                            <input class="form-control" type="text" name="option_1" id="option_1" required
+                                placeholder="ここに入力">
+                        </div>
+                        <div class="form-group">
+                            <label for="option_2">選択肢2</label>
+                            <input class="form-control" type="text" name="option_2" id="option_2" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="option_3">選択肢3</label>
+                            <input class="form-control" type="text" name="option_3" id="option_3" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="option_4">選択肢4</label>
+                            <input class="form-control" type="text" name="option_4" id="option_4" required><br>
+                        </div>
+
+            
+     
+        <h2>正解の選択肢を選んでください</h2>
+        <input type="radio" id="r1" name="radio" value="1" checked>選択肢1<br>
+        <input type="radio" id="r1" name="radio" value="2">選択肢2<br>
+        <input type="radio" id="r1" name="radio" value="3">選択肢3<br>
+        <input type="radio" id="r1" name="radio" value="4">選択肢4<br>
+        <button type="submit" class="my-3 btn btn-outline-primary">送信！</button>
+
+        </filedset>
+        </form>
+    </div>
+</div>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <!-- <p class="mb-1">&copy; 2020</p> -->
+            <ul class="list-inline">
+             
+              <li class="list-inline-item"><a href="/">四択クイズ</a></li>
+            </ul>
+          </footer>
+
+
+
+
+
+
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

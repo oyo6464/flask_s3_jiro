@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!--自前のcssとファビコン  -->
+  <link rel="stylesheet" href="../static/style.css?v=12">
+  <link href="../static/images/favicon.ico" rel="icon">
+  <title>四択クイズ</title>
+</head>
+
+<body class="bg-light">
+  <h1>4択クイズ</h1>
+  <div class="container  bg-white">
+<div class="my-5 pt-5 text-muted text-center text-small">
+  <h2>{{message}}</h2>
+  {%if message2==None%}
+  {%else%}
+  
+    <h2>{{message2}}</h2>
+    {%endif%}
+  <a href="/">4択問題を作ってみる！</a>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <!-- <p class="mb-1">&copy; 2020</p> -->
+    <ul class="list-inline">
+
+      <li class="list-inline-item"><a href="/">四択クイズ</a></li>
+    </ul>
+  </footer>
+
+</div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!--自前のcssとファビコン  -->
+     <link rel="stylesheet" href="../static/style.css?v=12">
+      <link href="../static/images/favicon.ico" rel="icon">
+      <title>四択クイズ</title>
+    </head>
+<body class="bg-light">
+        <h1>4択クイズ</h1>
+        <div class="container px-5 bg-white mt-3">
+          <h2>答え合わせページ</h2>
+        <h2>{{meta.question_count}}問中{{c_a_count}}問正解しました</h2>
+        <div class="box-noboder">
+          <h2>問題1</h2>
+          <div class="alert alert-primary" role="alert">
+          <h2>{{meta.p_question}}</h2>
+        </div>
+          <h3>選択肢</h3>
+            {{meta.p_option_1}}<br>
+            {{meta.p_option_2}}<br>
+            {{meta.p_option_3}}<br>
+            {{meta.p_option_4}}<br><br>
+          <h2>正解は…　　{{kotae_1}}</h2>
+          <h2>あなたの答えは{{user_answer_1}}</h2><br>
+
+          {%if meta.question_count >=2 %}
+          <h2>問題2</h2>
+          <div class="alert alert-warning" role="alert"> 
+          <h2>{{meta.p_question_2}}</h2>
+          </div>
+          <h3>選択肢2</h3>
+            {{meta.p_option_1_2}}<br>
+            {{meta.p_option_2_2}}<br>
+            {{meta.p_option_3_2}}<br>
+            {{meta.p_option_4_2}}<br><br>
+          <h2>正解は…　　{{kotae_2}}</h2>
+          <h2>あなたの答えは{{user_answer_2}}</h2><br>
+          {%else%}
+          {%endif%}
+          
+          {%if meta.question_count ==3 %}
+          <h2>問題_3</h2>
+          <div class="alert alert-success" role="alert">
+          <h2>{{meta.p_question_3}}</h2>
+        </div>
+          <h3>選択肢3</h3>
+            {{meta.p_option_1_3}}<br>
+            {{meta.p_option_2_3}}<br>
+            {{meta.p_option_3_3}}<br>
+            {{meta.p_option_4_3}}<br><br>
+          <h2>正解は…　　{{kotae_3}}</h2>
+          <h2>あなたの答えは{{user_answer_3}}</h2><br>
+          {%else%}
+          {%endif%}
+
+          {%if g_mode ==True%}
+          <p>{{ meta.p_name }}の作った問題の正解率が60%を超えました!</p>
+          {%else%}
+          {%endif%}
+      </div>
+      <!-- うｐファイルがなかった場合、ボタンを表示しない -->
+
+      {%if g_mode%}
+      {%if meta.p_filename == ""%}
+      <h2>正解率は60％以上です</h2>
+      {%else%}
+      <div class="gohoubi">
+        <form action="/gohoubi/{{id}}" method="POST" enctype="multipart/form-data">
+        <button type="submit"  class="btn btn-primary btn-lg">アップロードされた画像を受け取る！</button>
+        </form>
+      </div>
+      {%endif%}
+      {%else%}
+      <p>残念　もう一度挑戦してみてください</p>
+      {%endif%}
+    
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <!-- <p class="mb-1">&copy; 2020</p> -->
+        <ul class="list-inline">
+         
+          <li class="list-inline-item"><a href="/">四択クイズ</a></li>
+        </ul>
+      </footer>
+    
+    
+    
+    
+    
+    </div>
+ 
+
+    <!-- <div class="デバッグ表示">
+      {%if g_mode%}
+      とおった
+      {%else%}
+      とおらんかった
+      {%endif%}
+
+      テストでID表示
+      {{id}}
+      gohoubi_judgeは
+      {{gohoubi_judge}}
+      g_modeは
+      {{g_mode}}
+    </div> -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
+</body>
+</html>
