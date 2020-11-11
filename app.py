@@ -1,6 +1,6 @@
 from flask import Flask, redirect, request
-from flask import render_template, send_file #send_file未使用
-import os, json # json未使用
+from flask import render_template, send_file #send_file現在未使用
+import os, json 
 import uuid
 from tinydb import where, TinyDB
 import boto3
@@ -16,15 +16,15 @@ Tiny_json = BASE_DIR + "/data/data.json"
 
 #画像表示に使う
 IMAGES_URL = BASE_DIR + "/static/userimage/"
-#投稿データ 8MB以上は受け付けない
-app.config["MAX_CONTENT_LENGTH"] = 1024 * 1024 * 8
+#投稿データ 3MB以上は受け付けない
+app.config["MAX_CONTENT_LENGTH"] = 1024 * 1024 * 3
 #s3
 BUCKET = "oyoyo6464"
 
 
 
 
-#画像は任意　入口で名前を書く
+#画像は任意
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -45,7 +45,7 @@ def upload():
     #名前と画像（なかったら""で保存）
     meta  = {
         "p_name":request.form.get("name","名無しさん"),
-        "p_filename":upfile_get.filename,
+        "p_filename":upfile_get.filename
     }
     #URL 作成　uuid でユニークなIDを生成
     random_id = "FS_" + uuid.uuid4().hex
@@ -85,7 +85,7 @@ def upload_2(id):
         "correct_answer":request.form.get("radio"),
         "question_count":1
     }
-    db.update(q_1,where("id") ==id)#idが一致したらデータをついか
+    db.update(q_1,where("id") ==id)#idが一致したらデータを追加
     upload_file("data/data.json", BUCKET)
     meta = db.get(where("id") ==id)
 
@@ -116,7 +116,7 @@ def upload_3(id):
     return render_template("quiz_creation_3.html",meta=meta,url = make_url,id=meta["id"])
 
 
-#3問目の投稿を受けるページもう終わり！
+#3問目の投稿を受けるページ　ここで終了
 @app.route("/upload_4/<id>",methods=["POST"])
 def upload_4(id):
     db = TinyDB(Tiny_json)
@@ -145,7 +145,7 @@ def upload_4(id):
 
 
 #---------------------------------------------------------------------------------------#
-#問題に答えるページに飛ぶ権利があるかジャッジ 直接URLで来る
+#問題に答えるページに飛ぶ権利があるかチェック 直接URLで来る
 @app.route("/download/<id>")
 def download(id):#<id>　が引数として入る
 
@@ -164,7 +164,7 @@ def download(id):#<id>　が引数として入る
 def answer(id):
     #正解数カウント
     c_a_count = 0
-    #ご褒美ページに飛べるか
+    #ご褒美のページに飛べるか
     g_mode = False
 
     #まず投稿者のデータを引っ張ってくる(答え合わせ)
@@ -179,7 +179,7 @@ def answer(id):
     #ユーザーの答えそのもの
     user_answer_1 = request.form.get("radio")#例"{{meta.p_option_1}}"等の文字が入る
     #投稿者が指定した答えでキーを作る
-    kotae_key1 = "p_option_"+ meta["correct_answer"] #"p_option_2"みたいなのができる
+    kotae_key1 = "p_option_"+ meta["correct_answer"] #例 "p_option_2"
     #投稿者の答えそのもの
     kotae_1 = meta[kotae_key1] 
     if kotae_1 == user_answer_1:#答えそのもの==答えそのもの("例{{meta.p_option_1}}")
@@ -229,7 +229,7 @@ def answer(id):
                             )
 
 
-#ご褒美ルート たどり着けた
+#ご褒美ルート
 @app.route("/gohoubi/<id>",methods=["POST"])
 def gohoubi(id):
 
@@ -257,13 +257,13 @@ def gohoubi(id):
 def app_notfound(e):
     return render_template("msg.html",message="存在しないページです",message2=e)
 
-#送信ファイルサイズがnMBを超えたときのエラー ※家ではうまくいかない
+#送信ファイルサイズがnMBを超えたときのエラー
 @app.errorhandler(413)
 def app_gazousippai(e):
-    return render_template("msg.html",message="アップロードできるファイルサイズは8MB以下です",message2=e)
+    return render_template("msg.html",message="アップロードできるファイルサイズは3MB以下です",message2=e)
 
 
-#405 POSTしてないのにリンク更新しちゃったときとか
+#405 POSTしてないのにリンクを更新等
 @app.errorhandler(405)
 def app_405(e):
     return render_template("msg.html",message="エラーが発生しました",message2=e)
@@ -280,4 +280,4 @@ def rensyu():
 
 if __name__ == "__main__":
     # app.run(host="0.0.0.0")
-    app.run(host="0.0.0.0",debug=True)
+    app.run(host="0.0.0.0")
