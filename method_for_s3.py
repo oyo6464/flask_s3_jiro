@@ -1,14 +1,14 @@
 import boto3
-#いらんかもしれん
+
 
 
 #uploadする関数
 def upload_file(file_name, bucket):
-    #保存する名前を決めてるんだと思う
+    #保存する名前を決める
     object_name = file_name
     s3_client = boto3.client("s3")
 
-    #返値あるのか
+    
     response = s3_client.upload_file(file_name,bucket,object_name)
 
     return response

@@ -15,47 +15,84 @@
         <h1>4択クイズ</h1>
         <div class="container px-5 bg-white mt-3">
           <h2>答え合わせページ</h2>
-        <h2>{{meta.question_count}}問中{{c_a_count}}問正解しました</h2>
+        <h2 class="result">{{meta.question_count}}問中{{c_a_count}}問正解しました</h2>
         <div class="box-noboder">
           <h2>問題1</h2>
           <div class="alert alert-primary" role="alert">
           <h2>{{meta.p_question}}</h2>
         </div>
+          <div class="sentakushi-container">
           <h3>選択肢</h3>
-            {{meta.p_option_1}}<br>
-            {{meta.p_option_2}}<br>
-            {{meta.p_option_3}}<br>
-            {{meta.p_option_4}}<br><br>
-          <h2>正解は…　　{{kotae_1}}</h2>
-          <h2>あなたの答えは{{user_answer_1}}</h2><br>
+            <ol class="sentakushi">
+            <li>{{meta.p_option_1}}</li>
+            <li>{{meta.p_option_2}}</li>
+            <li>{{meta.p_option_3}}</li>
+            <li>{{meta.p_option_4}}</li>
+            </ol>
+          </div>
+          
+          
+          <div class="seikai">
+          <h2>正解は</h2>　
+          <h2 class="kotae">{{kotae_1}}</h2>
+          <h2>あなたの答えは</h2>
+          <h2 class="user-kotae">{{user_answer_1}}</h2>
+          </div>
 
+          
+          
           {%if meta.question_count >=2 %}
           <h2>問題2</h2>
           <div class="alert alert-warning" role="alert"> 
           <h2>{{meta.p_question_2}}</h2>
           </div>
+          
+          
+          <div class="sentakushi-container">
           <h3>選択肢2</h3>
-            {{meta.p_option_1_2}}<br>
-            {{meta.p_option_2_2}}<br>
-            {{meta.p_option_3_2}}<br>
-            {{meta.p_option_4_2}}<br><br>
-          <h2>正解は…　　{{kotae_2}}</h2>
-          <h2>あなたの答えは{{user_answer_2}}</h2><br>
+            <ol class="sentakushi">
+            <li>{{meta.p_option_1_2}}</li>
+            <li>{{meta.p_option_2_2}}</li>
+            <li>{{meta.p_option_3_2}}</li>
+            <li>{{meta.p_option_4_2}}</li>
+              </ol>
+            </div>
+            
+            
+            <div class="seikai">
+              <h2>正解は</h2>
+              <h2 class="kotae">{{kotae_2}}</h2>
+              <h2>あなたの答えは</h2>
+              <h2 class="user-kotae">{{user_answer_2}}</h2>
+          </div>    
+          
           {%else%}
           {%endif%}
           
           {%if meta.question_count ==3 %}
-          <h2>問題_3</h2>
+          <h2>問題3</h2>
           <div class="alert alert-success" role="alert">
           <h2>{{meta.p_question_3}}</h2>
         </div>
+          
+          <div class="main-container">
           <h3>選択肢3</h3>
-            {{meta.p_option_1_3}}<br>
-            {{meta.p_option_2_3}}<br>
-            {{meta.p_option_3_3}}<br>
-            {{meta.p_option_4_3}}<br><br>
-          <h2>正解は…　　{{kotae_3}}</h2>
-          <h2>あなたの答えは{{user_answer_3}}</h2><br>
+            <ol class="sentakushi">
+            <li>{{meta.p_option_1_3}}</li>
+            <li>{{meta.p_option_2_3}}</li>
+            <li>{{meta.p_option_3_3}}</li>
+            <li>{{meta.p_option_4_3}}</li>
+            </ol>
+            </div>
+            
+            
+            <div class="seikai">
+          <h2>正解は</h2>
+          <h2 class="kotae">{{kotae_3}}</h2>
+              <h2>あなたの答えは</h2>
+              <h2 class="user-kotae">{{user_answer_3}}</h2>
+            </div>
+              
           {%else%}
           {%endif%}
 
@@ -64,11 +101,11 @@
           {%else%}
           {%endif%}
       </div>
-      <!-- うｐファイルがなかった場合、ボタンを表示しない -->
+      <!-- upファイルがなかった場合、ボタンを表示しない -->
 
       {%if g_mode%}
       {%if meta.p_filename == ""%}
-      <h2>正解率は60％以上です</h2>
+      <h2 class="result">正解率は60％以上です</h2>
       {%else%}
       <div class="gohoubi">
         <form action="/gohoubi/{{id}}" method="POST" enctype="multipart/form-data">

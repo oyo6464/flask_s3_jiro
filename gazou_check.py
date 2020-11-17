@@ -21,10 +21,10 @@ def extension_check(x):
             return False
 
 
-if __name__ == "__main__":
-        #テスト
-    #y = b'\xff\xd8\xff\xe0\x00'
-    if extension_check(y):
-        print("ｔ")
-    else:
-        print("f")
+# if __name__ == "__main__":
+#         #テスト
+#     y = b'\xff\xd8\xff\xe0\x00'
+#     if extension_check(y):
+#         print("ｔ")
+#     else:
+#         print("f")

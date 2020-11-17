@@ -53,7 +53,7 @@
 
 
         <div class="row">
-            <div class="col-8 offset-2 -md-12">
+            <div class="col-offset-2 md-12">
                 <h2>問題文と4つの選択肢を入力して下さい</h2>
                 <form action="/upload_3/{{meta.id}}" method="POST" enctype="multipart/form-data" autocomplete="off">
                     
@@ -105,11 +105,13 @@
                 </tr>
             </table>
 
-            <p>Twitterで作成した問題を共有する</p>
+            
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{url}}" data-text="{{ meta.p_name }}さんが4択問題を作成しました！">Tweet</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-            <a href="{{url}}">作った問題のページに飛んで見る</a>
+          <p>Twitterで作成した問題を共有する</p>
+  <h3>
+    <a href="{{url}}">作った問題のページに飛んでみる</a>
+    </h3>
         </div>
 
     </div>

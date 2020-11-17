@@ -3,7 +3,6 @@ h1 {
     color: white;
     padding: 10px; margin:0;
 }
-/* なぜかh2無視されてる */
 h2 {
     color: #6869aa;
 }
@@ -19,5 +18,77 @@ p{
     color: #6869aa;
 }
 
+.sentakushi{
+/*  background-color: rgb(6, 187, 127);*/
+  padding:15px;
+}
+
+.sentakushi li{
+  padding: 8px 32px 8px;
+  background-color: rgb(20, 145, 184);
+  list-style: none;
+  color:rgb(255, 255, 255);
+  border-bottom: 1px solid;
+}
+
+/*答え合わせ*/
+.seikai{
+  background-color:azure;
+  border-radius: 10px;
+  padding:1px 15px 1px;
+  color: darkviolet;
+}
+.seikai h2{
+  padding: 2px;
+  margin: 0px;
+}
+.user-kotae{
+  padding: 0px;
+  margin: 0px;
+  color:deeppink;
+}
+
+.kotae{
+  padding: 0px;
+  margin: 0px;
+  color:darkturquoise;
+}
+
+.result{
+  color:cornflowerblue;
+}
+
+
+
+
+/*  画面が狭い時だけの設定*/
+@media screen and (max-width: 680px){
+/*未使用class*/
+/*  .none {display:none;}*/
+  
+/*  css適用されてるか確認*/
+  html{
+    font-size: 13px;
+  }
+  h2{
+/*    color: fuchsia;*/
+  }
+
+  .image img{
+    width: 80vw;
+    position: relative;
+left: 50%;
+transform: translateX(-50%);
+}
+
+  .row{
+    width: 80vw;
+    position: relative;
+left: 50%;
+transform: translateX(-50%);
+  }
+  
+
 
   
+}

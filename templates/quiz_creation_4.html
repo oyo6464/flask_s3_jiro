@@ -59,11 +59,13 @@
             <td><input type="text"  value="{{url}}" readonly></td>
         </tr>
     </table>
-    <p>Twitterで作成した問題を共有する</p>
+    
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{url}}" data-text="{{ meta.p_name }}さんが4択問題を作成しました！">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-    <a href="{{url}}">作った問題のページに飛んで見る</a>
+<p>Twitterで作成した問題を共有する</p>
+  <h3>
+    <a href="{{url}}">作った問題のページに飛んでみる</a>
+    </h3>
 </div>
 
 

@@ -16,11 +16,12 @@
         <div class="container px-5 bg-white mt-3">
           <h2>正解画像受け取りページ</h2>
         <!-- ここメイン、内容 -->
-        <h3>おめでとうございます!</h3>
+        <h3 class="result">おめでとうございます!</h3>
         {%if gazou != None %}
          <!-- 表示テスト<br>{{gazou}}<br>imgのリンク表示<br>../static/userimage/{{meta.id}}{{meta.p_filename}} -->
-  
+          <div class="image">
         <img src="../static/userimage/{{meta.id}}{{meta.p_filename}}" width="400">
+            </div>
         {%else%}
         画像はありません
         {%endif%}

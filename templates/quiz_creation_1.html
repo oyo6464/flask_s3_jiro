@@ -39,13 +39,15 @@
 
         {%if meta.p_filename != ""%}
         <h2>アップロードされた画像</h2>
+      <div class="image">
         <img src="../static/userimage/{{meta.id}}{{meta.p_filename}}" width="400">
+      </div>
         {%else%}
         {%endif%}
 
 
         <div class="row">
-            <div class="col-8 offset-2 -md-12">
+            <div class="col-offset-2 md-12">
 
                 <h2>問題文と4つの選択肢を入力して下さい</h2>
                 <form action="/upload_2/{{meta.id}}" method="POST" enctype="multipart/form-data" autocomplete="off"
